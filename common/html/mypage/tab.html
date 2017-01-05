@@ -1,0 +1,16 @@
+<div class="col-md-10">
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <button id="btnWait" type="button" class="btn btn-default <?=($tr_state === 'W') ? 'btn-success' : ''?>">거래대기</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button id="btnTrading" type="button" class="btn btn-default <?=($tr_state === 'P') ? 'btn-success' : ''?>">거래중</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button id="btnComplete" type="button" class="btn btn-default <?=($tr_state === 'S') ? 'btn-success' : ''?>">거래완료</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button id="btnCancel" type="button" class="btn btn-default <?=($tr_state === 'C') ? 'btn-success' : ''?>">거래취소</button>
+        </div>
+    </div>
+    <br />

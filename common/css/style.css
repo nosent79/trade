@@ -1,0 +1,436 @@
+@charset "utf-8";
+
+/* --
+
+title: CSS 설정
+
+desc: 페이지의 CSS설정을 정의함.
+
+
++ 각 요소에 수치적인 값이 있는 경우는 항상 단위를 표기한다.
++ 아이디명이나 클래스명은 모두가 인지하기 쉽도록 관련된 네이밍을 가진다.
++ 아이디는 하나의 페이지 안에 단하나의 유일한 아이디 만이 존재한다. 클래스는 동일한 명의 클래스가 다수 존재 가능하다.
++ 아이디는 앞에 (#)을 표기하고 클래스는 앞에 (.)을 표기한다
+
+-- */
+
+/* 판매,구매 등록 */
+table{border-top:2px solid #ACACAC;color:#5B5B5B}
+table tr th,table tr td{height:28px;border-bottom:1px solid #E2E2E2;border-left:1px solid #E2E2E2;text-align:center}
+table tr .first{border-left:0}
+table tr .s_left{padding-left:5px;text-align:left}
+table tr .s_right{padding-right:5px;text-align:right}
+table tr .h_auto{padding-top:5px;padding-bottom:5px}
+
+#goods_info{border-top-width:0}
+#game_info{border-bottom-width:0}
+.g_blue_table{width:760px}
+.g_blue_table tr th{background-color:#E8F2FF}
+.g_green_table tr th{background-color:#EBFBEA}
+.g_gray_table tr th{background-color:#ECECEC}
+.g_blue_table tr td{padding-left:15px;color:#767676}
+.g_blue_table tr #category{padding-top:15px}
+.g_blue_table tr #category ul{width:471px}
+.g_blue_table tr #category ul .g_btn_gray1{padding-top:3px}
+.g_blue_table tr #category #my_search_game{float:left;clear:both;width:459px;margin-top:5px;padding:10px 0 0 10px;font-size:11px;color:#808080}
+.g_blue_table tr #category #my_search_game li{height:20px}
+.g_blue_table tr td .g_sideway li{width:220px}
+.g_blue_table tr td .g_sideway .g_sideway_f{margin-right:27px}
+.g_blue_table tr td .g_sideway .g_selectbox{width:220px;margin:15px 0 5px 0;border:1px solid #CCC}
+.g_blue_table tr td .g_sideway .g_selectbox_list{overflow:auto;position:static;width:220px;height:100px;margin-bottom:10px;border:1px solid #CCC}
+.g_blue_table tr td .g_sideway .g_search_input{width:215px}
+.g_blue_table tr td .g_radio{margin-left:8px}
+.g_blue_table tr td .first_radio{margin-left:0}
+.g_blue_table tr td .text_right{text-align:right}
+.g_blue_table tr td #unit_type{margin-bottom:5px}
+.g_blue_table tr td #unit_type span{margin-right:10px}
+.g_blue_table tr td #game_money img{margin-left:3px;vertical-align:top;cursor:pointer}
+.g_blue_table tr td #game_money img.first_btn{margin-left:10px}
+.g_blue_table tr td #trade_money_info{margin-top:3px}
+.g_blue_table tr td #trade_money_info .g_black2_11b{margin-left:30px}
+.g_blue_table tr td #trade_money_info img{margin-left:5px;vertical-align:middle}
+.g_blue_table tr td input#txtTitle{width:95%}
+.g_blue_table tr td textarea#goods_detail{overflow-y:auto;width:95%;height:39px;margin-top:5px;padding:5px 0 0 5px;border:1px solid #D7D7D7;background-color:#F7F7F7;line-height:140%}
+.g_blue_table tr #screenshot{height:auto;padding-top:5px;padding-bottom:5px}
+.g_blue_table tr td.excellent_h{height:58px}
+.g_blue_table tr td.excellent_h img{margin-top:2px}
+.g_blue_table tr td .excellent li{width:71px;margin-right:10px}
+
+.g_tab{width:980px}
+.g_tab .none .g_btn_green1{width:34px;height:20px}
+.g_tab .select{width:50px;margin-top:7px}
+.g_tab .btn{width:40px;margin-top:4px}
+.g_tab .text{width:100px;margin-top:5px}
+
+.g_tab{clear:both;float:left;margin-top:20px}
+.g_tab div{float:left;position:relative;width:138px;padding:7px 0;border-top:1px solid #D2D2D2;border-left:1px solid #D2D2D2;background-color:#F4F4F4;text-align:center;cursor:pointer}
+.g_tab .last{border-right:1px solid #D2D2D2}
+.g_tab .selected{z-index:1;border:2px solid #666;border-bottom:none;background-color:#FFF;font-weight:bold}
+.g_tab .none{float:right;padding:0;border-top:1px solid #FFF;border-left:1px solid #FFF;background-color:#FFF;text-align:right}
+.g_content{width:980px;margin-left:0}
+
+
+#charge_box{float:left;padding:9px;border-top:2px solid #ACACAC;background-color:#F7F7F7}
+#charge_box #price_info{height:28px;padding:6px 10px 6px 10px;border:1px solid #C9CDD4;background-color:#D9DEE4;font:bold 25px Arial}
+#charge_box #price_info li{text-align:right;color:#150F13}
+#charge_box #price_info .price_font1{width:160px}
+#charge_box #price_info .price_font2{width:100px}
+#charge_box #price_info .price_font3{width:160px;color:#ED1C24}
+#charge_box #price_info .math_icon{margin:0 20px}
+
+#charge_box #my_mileage{margin:11px 25px 0 0}
+#charge_box #my_mileage li{width:210px;height:23px;text-align:right}
+#charge_box #my_mileage li .g_black2_b{margin-top:2px;width:100px;text-align:right}
+#charge_box #my_mileage li .g_text{text-align:right}
+
+/* layout */
+/*#endingwrap{background:url('') no-repeat center top;}*/
+#endingwrap{background-color:#cccccc;}
+#endingwrap #con{position:relative;width:1120px;margin:0 auto;background:url('') no-repeat center top;}
+
+/* checkbox 이미지 */
+.a img{width:134px;height:134px;opacity:0;}
+.a label{display:none;}
+
+.ending_1{padding-top:100px;height:771px;background:url('') no-repeat 0 0;}
+
+.ending_1 ul{overflow:hidden;}
+.ending_1 input[type=text]{width:345px;height:62px;padding-left:20px;font-size:15px;border:0;}
+.ending_1 input[type=password]{width:345px;height:62px;padding-left:20px;font-size:25px;border:0;}
+.ending_1 li{float:left;width:365px;height:62px;margin:0 0 18px 156px;}
+.ending_1 .in1,.ending_1 .in3,.ending_1 .in5,.ending_1 .in7{margin-right:48px;}
+.ending_1 .in7{margin-right:48px;}
+.ending_1 .in7 input{width:108px;text-align:center;margin-right:20px;padding:0;}
+.ending_1 .in7 input.last{margin-right:0}
+.ending_1 .in8 .empty {width:30px;height:62px;font-size:15px;border:0; background-color: #000;}
+.ending_1 .in10{width:412px;}
+
+.ending_1 .chk1 img{width:64px;height:64px;margin-right:17px;background:transparent url(../images/radio_11.png) no-repeat center 50%;}
+.ending_1 .chk2 img{width:64px;height:64px;background:transparent url(../images/radio_12.png) no-repeat center 50%;}
+.ending_1 .chk1-checked img{width:64px;height:64px;background:transparent url(../images/radioed_11.png) no-repeat center 50%;}
+.ending_1 .chk2-checked img{width:64px;height:64px;background:transparent url(../images/radioed_12.png) no-repeat center 50%;}
+
+p.agree1{clear:both;height:39px;margin:20px 0 0 37px;}
+div.agtxt{float:left;margin-left:37px;margin-bottom:56px;}
+div.agtxt div{width:502px;height:109px;margin-bottom:15px;overflow-y:scroll;background:#fff;}
+p.btn{clear:both;text-align:center;}
+p.btn img{margin:0 58px;}
+
+p.btnComplete{clear:both;text-align:center;}
+
+.ending_1 .ag img{width:250px;height:23px;margin-right:17px;background:transparent url(../images/check.gif) no-repeat 0 50%;}
+.ending_1 .ag-checked img{width:250px;height:23px;margin-right:17px;background:transparent url(../images/checked.gif) no-repeat 0 50%;}
+
+.ending_1 .ag1 img{width:420px;height:29px;margin-right:17px;background:transparent url(../images/check.gif) no-repeat 0 50%;}
+.ending_1 .ag1-checked img{width:420px;height:29px;margin-right:17px;background:transparent url(../images/checked.gif) no-repeat 0 50%;}
+
+.ending_1 div.select{position:relative;}
+
+/* setting the width and height of the SELECT element to match the replacing graphics */
+.ending_1 select.select{
+    position:relative;
+    z-index:10;
+    width:365px !important;
+    height:62px !important;
+    font-size:15px;
+    line-height:62px;
+}
+
+/* dynamically created SPAN, placed below the SELECT */
+.ending_1 span.select{
+    position:absolute;
+    bottom:0;
+    float:left;
+    left:0;
+    width:365px;
+    height:62px;
+    line-height:62px;
+    text-indent:20px;
+    font-size:15px;
+    background:url(../images/select.gif) no-repeat 0 0;
+    cursor:default;
+    z-index:1;
+}
+
+
+
+.ending_1 div.select-etc {position:relative; float:left; width:150px; }
+
+/* setting the width and height of the SELECT element to match the replacing graphics */
+.ending_1 select.select-etc {
+    position:relative;
+    z-index:10;
+    width:170px !important;
+    height:62px !important;
+    font-size:15px;
+    line-height:62px;
+}
+
+/* dynamically created SPAN, placed below the SELECT */
+.ending_1 span.select-etc{
+    position:absolute;
+    bottom:0;
+    float:left;
+    left:0;
+    width:150px;
+    height:62px;
+    line-height:62px;
+    text-indent:20px;
+    font-size:15px;
+    background:url(../images/select.gif) no-repeat right top;
+    cursor:default;
+    z-index:1;
+}
+
+
+@font-face {
+    font-family:'Nanum Gothic';
+    font-style: normal;
+    font-weight:800;
+    src:url('../font/NanumGothic-Regular.eot');
+    src:url('../font/NanumGothic-Regular.eot?#iefix') format('embedded-opentype'), url('../font/NanumGothic-Regular.woff2') format('woff2'), url('../font/NanumGothic-Regular.woff') format('woff'), url('../font/NanumGothic-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family:'Nanum Gothic Bold';
+    font-style:normal;
+    font-weight:700;
+    src:url('../font/NanumGothic-Bold.eot');
+    src:url('../font/NanumGothic-Bold.eot?#iefix') format('embedded-opentype'), url('../font/NanumGothic-Bold.woff2') format('woff2'), url('../font/NanumGothic-Bold.woff') format('woff'), url('../font/NanumGothic-Bold.ttf') format('truetype');
+}
+
+/**
+버튼 속성 추가
+ */
+.button {
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.green { background-color: #4CAF50; /* Green */ }
+.red { background-color: #f00; /* Red */ }
+.black { background-color: #000; /* Red */ }
+
+/*
+ * @title		ê³µí†µ CSS
+ * @author		ê¹€ë³´ëžŒ
+ * @date		2011.12.29
+ * @update		2013.05.29(ê¹€ë³´ëžŒ) - CSS Sprites
+ * @description
+ */
+
+html{overflow:hidden;width:100%;height:100%;color:#5A5A5A;font-family:ë‹ì›€, dotum;font-size:12px;line-height:140%}
+body{overflow:hidden;width:100%;height:100%}
+body,div,input,ul,li,dl,dt,dd,form,fieldset,label,strong,span,button,a,p{margin:0;padding:0;text-align:left}
+h1,h2,h3,h4,h5,h6{margin:0;padding:0;font-size:12px}
+ul{margin:0;padding:0;list-style:none}
+table{border-collapse:collapse;border-spacing:0;color:#5A5A5A;font-size:12px;line-height:140%}
+a{color:#5A5A5A;text-decoration:none}
+form{/* display:inline; */margin:0;padding:0;}
+button{border:0;cursor:pointer}
+select, textarea{font-family:ë‹ì›€, dotum}
+select{font-size:11px;display:inline;vertical-align:middle;color:#808080}
+textarea{border:1px solid #D7D7D7;color:#666;font-size:11px}
+img{border:0;vertical-align:middle}
+em{font-style:normal}
+#g_SLEEP{overflow:auto;position:absolute;top:0;left:0;z-index:98;width:100%;height:100%}
+#g_OVERLAY{position:absolute;top:0;left:0;z-index:97;width:100%;height:100%;background-color:#FFF;cursor:wait;filter:alpha(opacity=60);-moz-opacity:0.60;opacity:0.60;-khtml-opacity:0.60}
+#g_BODY{overflow:auto;overflow-y:scroll;position:absolute;top:0;left:0;z-index:50;width:100%;height:100%;text-align:center}
+#g_ITEMMANIA{width:980px;margin:0 auto;z-index:50}
+.g_text,.g_password{width:84px;height:18px;padding:0 3px;border:1px solid #D7D7D7;color:#444;line-height:18px;vertical-align:middle;font-family:ë‹ì›€, dotum}
+.g_text{font-size:12px}
+.mode-active{ime-mode:active}
+.g_checkbox,.g_radio{margin:-2px 3px 0 0;vertical-align:middle}
+.g_image{border:0;vertical-align:middle}
+.g_baseline{vertical-align:baseline}
+.g_button{cursor:pointer}
+.g_button_input{padding-top:2px;border:1px solid #D7D7D7;background-color:#FFF;color:#666;text-align:center;font-weight:bold;cursor:pointer}
+.g_no{line-height:0;font-size:0}
+.g_hidden{display:none}
+.g_left{float:left}
+.g_clear_left{clear:both;float:left}
+.g_right{float:right}
+.g_clear_right{clear:both;float:right}
+.g_clear{clear:both}
+.g_center{position:relative;left:50%}
+.g_free{position:absolute;top:50%;left:50%;z-index:99}
+.g_finish{clear:both;height:0;margin-top:-1px;font-size:1px;line-height:0}
+.h_new{color:#FFF000;font-weight:bold}
+.placeholder{color:#A9A9A9}
+
+/* â–¼ CSS Sprites ê³µí†µ */
+.g_icon,.layer_title .btn_close{background:url(//img1.itemmania.com/images/icon/icon.gif) no-repeat}
+.g_icon_v,.g_subtitle_blue,.g_subtitle_green,.g_title_notice,.g_path li,.g_paging li{background:url(//img1.itemmania.com/images/icon/icon_v.gif) no-repeat}
+.g_txtbtn{background:url(//img1.itemmania.com/images/icon/txt_btn.gif) no-repeat}
+span.g_sprites, span.g_txtbtn, span.g_icon{display:inline-block;vertical-align:middle;cursor:pointer}
+/* â–² CSS Sprites ê³µí†µ */
+/* â–¼ í°íŠ¸,ì»¬ëŸ¬ ê´€ë ¨ */
+.g_black1{color:#2F2F2F}
+.g_black1_b{color:#2F2F2F;font-weight:bold}
+.g_black1_11{color:#2F2F2F;font-size:11px}
+.g_black1_11b{color:#2F2F2F;font-size:11px;font-weight:bold}
+.g_black2{color:#5B5B5B}
+.g_black2_b{color:#5B5B5B;font-weight:bold}
+.g_black2_11{color:#5B5B5B;font-size:11px}
+.g_black2_11b{color:#5B5B5B;font-size:11px;font-weight:bold}
+.g_black3{color:#767676}
+.g_black3_b{color:#767676;font-weight:bold}
+.g_black3_11{color:#767676;font-size:11px}
+.g_black3_11b{color:#767676;font-size:11px;font-weight:bold}
+.g_black4{color:#808080}
+.g_black4_b{color:#808080;font-weight:bold}
+.g_black4_11{color:#808080;font-size:11px}
+.g_black4_11b{color:#808080;font-size:11px;font-weight:bold}
+.g_black5_11{color:#8F8F8F}
+.g_black5_11b{color:#8F8F8F;font-weight:bold}
+.g_black6{color:#BDBDBD}
+.g_red1{color:#ED1C24}
+.g_red1_b{color:#ED1C24;font-weight:bold}
+.g_red1_11{color:#ED1C24;font-size:11px}
+.g_red1_11b{color:#ED1C24;font-size:11px;font-weight:bold}
+.g_blue1{color:#245BB8}
+.g_blue1_b{color:#245BB8;font-weight:bold}
+.g_blue1_11{color:#245BB8;font-size:11px}
+.g_blue1_11b{color:#245BB8;font-size:11px;font-weight:bold}
+.g_blue2{color:#6E9CE1}
+.g_blue2_b{color:#6E9CE1;font-weight:bold}
+.g_blue2_11{color:#6E9CE1;font-size:11px}
+.g_blue2_11b{color:#6E9CE1;font-size:11px;font-weight:bold}
+.g_org1{color:#F26522}
+.g_org1_b{color:#F26522;font-weight:bold}
+.g_org1_11{color:#F26522;font-size:11px}
+.g_org1_11b{color:#F26522;font-size:11px;font-weight:bold}
+.g_green1{color:#197B30}
+.g_green1_b{color:#197B30;font-weight:bold}
+.g_green1_11{color:#197B30;font-size:11px}
+.g_green1_11b{color:#197B30;font-size:11px;font-weight:bold}
+.g_white1{color:#FFF}
+.g_white1_b{color:#FFF;font-weight:bold}
+.g_white1_11{color:#FFF;font-size:11px}
+.g_white1_11b{color:#FFF;font-size:11px;font-weight:bold}
+/* â–² í°íŠ¸,ì»¬ëŸ¬ ê´€ë ¨ */
+/* â–¼ ë°•ìŠ¤ */
+.g_btn_gray1,.g_btn_gray2,.g_btn_gray3,.g_btn_gray4,.g_btn_white1,.g_btn_white2,.g_btn_blue1,.g_btn_blue2,.g_btn_green1,.g_btn_org1,.g_btn_red1, .g_btn_gb1{padding:2px 4px 0;border:1px solid #636363;font-size:11px;font-family:ë‹ì›€, dotum;text-align:center}
+.g_btn_gray1{background-color:#767676;color:#FFF}
+.g_btn_gray2{border-color:#C9C9C9;background-color:#ECECEC}
+.g_btn_gray3{border-color:#E4E4E4;background-color:#FAFAFA}
+.g_btn_gray4{border-color:#B3B3B3;background-color:#F7F7F7}
+.g_btn_white1{border-color:#ABABAB;background-color:#FFF}
+.g_btn_white2{border-color:#C9C9C9;background-color:#FFF}
+.g_btn_blue1{border-color:#1E72E1;background-color:#2687ED;color:#FFF}
+.g_btn_blue2{border-color:#3E6A8B;background-color:#6A90AD;color:#FFF}
+.g_btn_green1{border-color:#11870B;background-color:#259D1F;color:#FFF}
+.g_btn_org1{border-color:#b72613;background-color:#DA4834;color:#FFF}
+.g_btn_red1{border-color:#A80000;background-color:#E50000;color:#FFF}
+.g_btn_gb1 {background-color: #4C7DA3; border-color: #2C5A7E; color: #FFF; }
+.g_big_box1,.g_notice_box1{border:1px solid #D7D7D7;background-color:#F7F7F7;font-size:11px}
+.g_big_box1{padding:15px 10px;color:#5B5B5B}
+.g_notice_box1{padding:18px 15px;color:#767676}
+.g_notice{height:24px;margin-top:21px;color:#5B5B5B;font-weight:bold;padding-left:21px;background:url(//img1.itemmania.com/images/icon/img_notice.gif) no-repeat 0 2px}
+/* â–² ë°•ìŠ¤ */
+/* â–¼ ë²„íŠ¼ */
+.g_btn{margin-top:45px;text-align:center}
+.g_btn img{cursor:pointer}
+.g_btn .first{margin-right:15px}
+/* â–² ë²„íŠ¼ */
+/* â–¼ íƒ€ì´í‹€ */
+.g_title,.g_title_green,.g_title_blue{height:25px;padding-top:5px}
+.g_title_green{border-bottom:2px solid #249E1E}
+.g_title_blue{border-bottom:2px solid #407FD4}
+.g_subtitle,.g_subtitle_blue,.g_subtitle_green{height:24px;margin-top:21px;color:#2F2F2F;font-weight:bold}
+.g_subtitle_blue{padding-left:21px;background-position:0 -595px}
+.g_subtitle_green{padding-left:21px;background-position:0 -628px}
+.g_gray_border{border-bottom:2px solid #D3D6DB}
+.g_title_notice{height:24px;margin-top:21px;padding-left:21px;background-position:0 -1225px;color:#5B5B5B;font-weight:bold}
+/* â–² íƒ€ì´í‹€ */
+/* â–¼ SELECT BOX */
+.g_selectbox{height:18px;border:1px solid #D7D7D7;background-color:#FFF;font-size:11px;text-align:left}
+.g_selectbox .arrow_img{float:right;width:15px;height:15px;margin:2px 2px 0 5px;_margin-right:1px;background:url(//img1.itemmania.com/images/icon/arrow_dn_gray.gif) no-repeat;cursor:pointer}
+.g_selectbox .g_search_input{float:left;padding:3px 0 0 5px;border:0;color:#767676;font-size:11px;font-family:ë‹ì›€,dotum;ime-mode:active}
+.g_selectbox .value{float:left;height:18px;_height:17px;margin-left:5px;_margin-left:2px;color:#767676;cursor:pointer;line-height:18px;_line-height:17px}
+.g_selectbox_list{overflow:auto;overflow-x:hidden;position:absolute;top:0;left:0;z-index:51;border:1px solid #D7D7D7;border-top:0;background-color:#FFF;font-size:11px}
+.g_selectbox_list div{overflow:hidden;height:20px;padding-left:5px;background-color:#FFF;text-align:left;line-height:20px;cursor:pointer}
+.g_selectbox_list .over,.g_selectbox_list .select{background-color:#F5F5F5}
+/* â–² SELECT BOX */
+/* â–¼ ê¸°ë³¸íƒ­ */
+.g_tab{clear:both;float:left;margin-top:20px}
+.g_tab div{float:left;position:relative;width:138px;padding:7px 0;border-top:1px solid #D2D2D2;border-left:1px solid #D2D2D2;background-color:#F4F4F4;text-align:center;cursor:pointer}
+.g_tab .last{border-right:1px solid #D2D2D2}
+.g_tab .selected{z-index:1;border:2px solid #666;border-bottom:none;background-color:#FFF;font-weight:bold}
+.g_tab .none{float:right;padding:0;border-top:1px solid #FFF;border-left:1px solid #FFF;background-color:#FFF;text-align:right}
+.g_tab_line{clear:both;position:relative;top:-2px;z-index:0;width:760px;height:0;margin-bottom:18px;border-top:2px solid #666}
+/* â–² ê¸°ë³¸íƒ­ */
+/* â–¼ UL STYLE */
+.g_sideway li{float:left}
+.g_list li,.g_list dd{padding-left:7px;background:url(//img1.itemmania.com/images/icon/icon_spot.gif) no-repeat 0px 7px}
+.g_list .list_non{background:none}
+/* â–² UL STYLE */
+/* â–¼ ë„¤ë¹„ê²Œì´ì…˜ */
+.g_path{float:right;margin-top:7px}
+.g_path li{float:left;margin-right:5px;padding-right:10px;background-position:100% -179px;color:#898989;font-size:11px}
+.g_path .select{margin:0;padding:0;background:none;font-weight:bold}
+/* â–² ë„¤ë¹„ê²Œì´ì…˜ */
+/* â–¼ íŽ˜ì´ì§• */
+.g_paging{display:block;margin-top:15px;text-align:center}
+.g_paging li{display:inline;margin-left:5px;padding-left:5px;background-position:0 -332px}
+.g_paging .first,.g_paging .prev,.g_paging .next,.g_paging .continue,.g_paging .last{margin:0;padding:0;background:none}
+.g_paging .alone{margin:0 5px;padding-left:0;background:none}
+.g_paging .start{margin-left:5px;background:none}
+.g_paging .end{margin-right:10px}
+/* â–² íŽ˜ì´ì§• */
+/* â–¼ í’ì„ ë§ */
+.g_balloons3{display:none;position:absolute;z-index:50}
+.g_bal_square_blue,.g_bal_square_green,.g_bal_square_purple{clear:both;float:left;position:absolute;padding:15px 14px;background-color:#FFF;color:#767676;font-size:11px}
+.g_bal_square_blue{border:2px solid #216ED7}
+.g_bal_square_green{border:2px solid #239E1F}
+.g_bal_square_purple{border:2px solid #C991FF}
+.g_balloons{position:absolute}
+.g_balloons .square{position:relative;z-index:4;border:1px solid #618DC2;background:#FFF;text-align:center;font-size:11px;letter-spacing:-1px;filter:progid:DXImageTransform.Microsoft.Shadow(color=#CDDBEB, Direction=130, Strength=2)}
+.g_balloons .square .comment{margin:7px;font-size:11px}
+.g_balloons .bold{font-weight:bold}
+.g_balloons .disable{padding-left:35px;background:url(//img1.itemmania.com/images/user/graph_03.gif) no-repeat 0 3px;color:#FF2400;font-weight:bold}
+.g_balloons .low{padding-left:35px;background:url(//img1.itemmania.com/images/user/graph_01.gif) no-repeat 0 3px;color:#FF6C00;font-weight:bold}
+.g_balloons .proper{padding-left:35px;background:url(//img1.itemmania.com/images/user/graph_02.gif) no-repeat 0 3px;color:#00AE55;font-weight:bold}
+.g_balloons .capslock{margin-top:3px;padding-top:3px;border-top:1px solid #DEDEDE}
+.g_balloons .shadow{display:block;position:absolute;top:0;left:0;z-index:2;background:#CDDBEB}
+.g_balloons .pointer_arrow{display:block;position:absolute;z-index:5;width:4px;height:5px}
+.g_balloons2{position:absolute;padding-left:62px}
+/* â–² í’ì„ ë§ */
+.g_screenshot{clear:both;float:left}
+/* â–¼ layer */
+.g_popup,.g_popup_green{display:none;float:left;border:4px solid #26466E;background-color:#FFF}
+.g_popup .layer_title,.g_popup_green .layer_title{clear:both;height:19px;margin:3px 3px 0 3px;padding:12px 20px;background-color:#407FD4}
+.g_popup .layer_title .title,.g_popup_green .layer_title .title{float:left}
+.layer_title .btn_close{float:right;width:15px;height:15px;margin-top:1px;_margin-top:-16px;background-position:-174px -2px;cursor:pointer}
+.g_popup .layer_content,.g_popup_green .layer_content{float:left;clear:both;padding:20px 20px 25px}
+.g_popup .layer_content .g_btn,.g_popup_green .layer_content .g_btn{margin-top:25px}
+.g_popup .layer_content .g_btn .first,.g_popup_green .layer_content .g_btn .first{margin-right:10px}
+/* â–² layer */
+/* â–¼ layer_green */
+.g_popup_green{border:4px solid #196915}
+.g_popup_green .layer_title{background-color:#1FAB18}
+/* â–² layer_green */
+/* â–¼ ë°”ë¡œì ‘ì† ì•ˆë‚´ ë ˆì´ì–´ */
+.direct_layer .title div,.direct_layer .info_content .benefit_txt,.direct_layer .info_content .how_title,.direct_layer .info_content .direct_how li,.direct_layer .info_content .detail_go{background:url(//img1.itemmania.com/images/_head_tail/direct_sp.jpg) no-repeat}
+.direct_layer{display:none;z-index:100;position:absolute;width:406px;height:394px;margin:30px 0 0 293px;border:3px solid #0B7DCC;background:#E6F2FA}
+.direct_layer_net{margin-left:0}
+.direct_layer .title{height:42px;border-bottom:1px solid #C6C6C6;background:#FFF}
+.direct_layer .title .title_txt{overflow:hidden;float:left;width:238px;height:17px;margin:13px 0 0 20px;_margin-left:10px;background-position:-2px -2px;line-height:9999px}
+.direct_layer .title .t_on{width:234px;background-position:-2px -28px}
+.direct_layer .title .close{float:right;width:15px;height:15px;margin:14px 18px 0 0;background-position:-237px -93px;cursor:pointer}
+.direct_layer .info_content{overflow:hidden;height:350px}
+.direct_layer .info_content .benefit_txt{overflow:hidden;float:left;width:231px;height:102px;margin:26px 0 0 15px;_margin-left:8px;background-position:-2px -56px;line-height:9999px}
+.direct_layer .info_content .how_title{overflow:hidden;clear:both;float:left;width:174px;height:21px;margin:20px 0 0 15px;background-position:-2px -168px;line-height:9999px}
+.direct_layer .info_content .direct_how{overflow:hidden;clear:both;float:left;height:88px;margin:15px 0 0 15px}
+.direct_layer .info_content .direct_how li{overflow:hidden;float:left;height:88px;line-height:9999px}
+.direct_layer .info_content .direct_how .direct_how1{width:85px;background-position:-2px -204px;cursor:pointer}
+.direct_layer .info_content .direct_how .direct_how2{width:100px;background-position:-87px -204px;cursor:pointer}
+.direct_layer .info_content .direct_how .direct_how3{width:100px;background-position:-187px -204px;cursor:pointer}
+.direct_layer .info_content .direct_how .direct_how4{width:100px;background-position:-287px -204px;cursor:pointer}
+.direct_layer .info_content .detail_go{overflow:hidden;width:150px;height:35px;margin:20px auto 0;background-position:-237px -56px;line-height:9999px;cursor:pointer}
+/* â–² ë°”ë¡œì ‘ì† ì•ˆë‚´ ë ˆì´ì–´ */
+.selected { background-color: #CCCCCC; }
