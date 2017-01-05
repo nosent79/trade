@@ -12,9 +12,8 @@
 
     $params = [
         'gubun' => 'S',
-        'state' => $_REQUEST['state'] ?? 'P',
+        'state' => isset($_REQUEST['state']) ? $_REQUEST['state'] : 'P',
     ];
-
 
 ?>
 <div class="container">

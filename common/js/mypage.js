@@ -10,11 +10,29 @@ $(function() {
         goUrl("sell.php")
     });
 
+    $("#btnSellApplyMember").click(function(e) {
+        goUrl("sell_apply.php")
+    });
+
     $("#btnBuyMember").click(function(e) {
         goUrl("buy.php")
     });
 
-    $("._goTradeDesc").click(function(e) {
+    $("#btnBuyApplyMember").click(function(e) {
+        goUrl("buy_apply.php")
+    });
+
+    $("._goBuyDesc").click(function(e) {
+        e.preventDefault();
+
+        var tr_code = $(this).attr("tr_code");
+        var url = "../popup/detailBuy.php?tr_code="+tr_code;
+        var opt = "width=768, height=600, resizable=no, scrollbars=no, status=no;";
+
+        popupOpen(url, opt)
+    });
+
+    $("._goSellDesc").click(function(e) {
         e.preventDefault();
 
         var tr_code = $(this).attr("tr_code");

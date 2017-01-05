@@ -7,24 +7,27 @@
     $db = new Database();
 
     if(!isMember()) {
-        redirectAlert(LOGIN_PATH."/login.php", "로그인 후 이용하세요.");
+        redirectAlert(LOGIN_PATH. "/login.php", "로그인 후 이용하세요.");
     }
 
     $tr_state = isset($_REQUEST['state']) ? $_REQUEST['state'] : 'W';
-
     $bGoTradeDesc = false;
 
-    if ('P' === $tr_state) {
+    if ('S' === $tr_state) {
         $bGoTradeDesc = true;
     }
 
     $params = [
-        'gubun' => 'B',
+        'gubun' => 'S',
         'state' => $tr_state,
     ];
-
 ?>
 <div class="container">
+    <form id="frmAssess" name="frmAssess" method="post">
+        <input type="hidden" name="t_m_id"  />
+        <input type="hidden" name="t_m_nm" />
+    </form>
+
     <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
             <li><a href="<?=SITE_URL.SITE_PORT?>/auth/logout.php"><span class="glyphicon glyphicon-log-in"></span> 로그아웃</a></li>
@@ -45,42 +48,30 @@
                     <th>거래금액</th>
                     <th>등록일</th>
                     <?php
-                    if ($tr_state === 'S') {
-                        echo "<th>평가</th>";
-                    }
+                        if ($tr_state === 'S') {
+                            echo "<th>평가1</th>";
+                        }
                     ?>
-
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-                $buy_list = $db->getTradeListMember($params);
+                $sell_list = $db->getApplyTradeListMember($params);
 
-                foreach ($buy_list as $list) {
+                foreach ($sell_list as $list) {
                     ?>
                     <tr>
                         <td><?=$list['tr_cate']?></td>
                         <td><?=$list['tr_kind']?></td>
-                        <td>
-                            <?php
-                            if ($bGoTradeDesc) {
-                            ?>
-                            <a href="#" tr_code="<?= $list['tr_code'] ?>" class="_goBuyDesc"><?= $list['tr_title'] ?></a>
-                            <?php
-                            } else {
-                            ?>
-                            <?= $list['tr_title'] ?>
-                            <?php
-                            }
-                            ?>
-                        </td>
+                        <td><?= $list['tr_title'] ?></td>
                         <td><?=$list['price']?></td>
                         <td><?=$list['t_date']?></td>
                         <?php
                         if ($tr_state === 'S') {
-                            echo "<td><button class='button g_button _assess'>평가</button></td>";
+                            echo "<td><button t_m_id='".$list['reg_id']."' class='button g_button _assess'>평가</button></td>";
                         }
                         ?>
+
                     </tr>
                     <?php
                 }
@@ -94,20 +85,20 @@
 <script src="../common/js/mypage.js"></script>
 <script>
     $("._assess").click(function(e) {
-//        e.preventDefault();
-//
-//        var url = "assess.php";
-//        var f = document.frmAssess;
-//        f.t_m_id.value = $(this).attr("t_m_id");
-//        f.t_m_nm.value = $(this).attr("t_m_nm");
-//
-//        var pop_title = "popupOpener" ;
-//        window.open("", pop_title) ;
-//
-//        f.target = pop_title ;
-//        f.action = url ;
-//
-//        f.submit() ;
+        e.preventDefault();
+
+        var url = "assess.php";
+        var f = document.frmAssess;
+        f.t_m_id.value = $(this).attr("t_m_id");
+        f.t_m_nm.value = $(this).attr("t_m_id");
+
+        var pop_title = "popupOpener" ;
+        window.open("", pop_title) ;
+
+        f.target = pop_title ;
+        f.action = url ;
+
+        f.submit() ;
     });
 
 </script>

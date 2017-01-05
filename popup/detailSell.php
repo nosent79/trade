@@ -2,7 +2,7 @@
     require_once "../Database.php";
     require_once  "../common/html/header.html";
 
-    if (($_REQUEST['tr_code'] ?? "") === "") {
+    if ((isset($_REQUEST['tr_code']) ? $_REQUEST['tr_code'] : "") === "") {
         redirectAlert(SITE_URL.SITE_PORT."/", "잘못된 접근입니다.");
     }
 
@@ -41,7 +41,7 @@
                 <td><?=$info['t_date']?></td>
             </tr>
             <tr>
-                <th>구매수량</th>
+                <th>판매수량</th>
                 <td><?=number_format($info['qty'])?></td>
                 <th>단위금액</th>
                 <td><?=number_format($info['price'])?></td>

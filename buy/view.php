@@ -2,7 +2,8 @@
     require_once "../Database.php";
     require_once  "../common/html/header.html";
 
-    if (($_REQUEST['tr_code'] ?? "") === "") {
+//    if (($_REQUEST['tr_code'] ?? "") === "") {
+    if ((isset($_REQUEST['tr_code']) ? $_REQUEST['tr_code'] : "") === "") {
         redirectAlert(SITE_URL.SITE_PORT."/", "잘못된 접근입니다.");
     }
 

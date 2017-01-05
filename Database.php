@@ -278,7 +278,7 @@
         }
 
         /**
-         * 사용자별 거래 리스트
+         * 내가 등록한 거래정보
          *
          * @param $gubun
          * @return mixed
@@ -325,6 +325,56 @@
 
             return $this->resultset($sql);
         }
+
+        /**
+         * 내가 신청한 거래정보
+         * 
+         * @param $params
+         * @return mixed
+         */
+        public function getApplyTradeListMember($params)
+        {
+            $sql = "
+                select   t.tr_code
+                         ,tr_gubun
+                         ,fnCodeNm('trade_cate', tr_cate) tr_cate
+                         ,fnCodeNm('trade_kind', tr_kind) tr_kind
+                         ,qty
+                         ,price
+                         ,tr_title
+                         ,tr_desc
+                         ,reg_id
+                         ,t.reg_date t_date
+                         ,fnCodeNm('trade_state', ts.tr_state) tr_state
+                         ,ts.reg_date ts_date
+                from     tbl_trade t inner join
+                          (
+                            select   t.tr_code,
+                                     t.tr_state,
+                                     t.reg_date
+                            from     tbl_trade_state t inner join 
+                                     (select   tr_code,
+                                                  max(reg_date) reg_date
+                                      from     tbl_trade_state
+                                      group by tr_code) tt
+                            on       t.tr_code = tt.tr_code
+                            and      t.reg_date = tt.reg_date
+                          ) ts
+                on        t.tr_code = ts.tr_code  inner join
+                          tbl_trade_member ttt
+                on        t.reg_id = ttt.receive_m_id 
+                where    tr_gubun = :gubun
+                and       ts.tr_state = :state
+                order by ts.reg_date desc
+            ";
+
+            $this->query($sql);
+            $this->bind(":gubun", $params['gubun']);
+            $this->bind(":state", $params['state']);
+
+            return $this->resultset($sql);
+        }
+
 
         /**
          * 거래 상세

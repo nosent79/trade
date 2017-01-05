@@ -6,8 +6,8 @@ include_once "../common/html/button.html";
 
 $db = new Database();
 
-$tr_kind = $_REQUEST['tr_kind'] ?? "all";
-
+//$tr_kind = $_REQUEST['tr_kind'] ?? "all";
+$tr_kind = isset($_REQUEST['tr_kind']) ? $_REQUEST['tr_kind'] : 'all';
 ?>
     <div class="g_content">
         <div class="g_tab" id="search_goods_tab">

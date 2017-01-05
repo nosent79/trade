@@ -13,5 +13,5 @@
     }
 
     if ($db->insertAssess($_REQUEST)) {
-        redirectSiteURL("/mypage");
+        redirectAlert("/mypage", "등록했습니다.");
     }

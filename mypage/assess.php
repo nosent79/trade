@@ -77,9 +77,9 @@
 <body>
 
 <form name="frmAssessOK" action="assess_ok.php">
-    <input type="hidden" name="target_id" value="<?=$_POST['g_id']?>" />
+    <input type="hidden" name="target_id" value="<?=$_POST['t_m_id']?>" />
     <div class="container">
-        <label><b><?=$_POST['g_name']?> 님을 평가해 주세요.</b></label>
+        <label><b><?=$_POST['t_m_nm']?> 님을 평가해 주세요.</b></label>
         <select name="assess_point" id="assess_point">
             <option value="5">5</option>
             <option value="4">4</option>
