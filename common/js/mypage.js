@@ -11,7 +11,6 @@ $(function() {
     });
 
     $("#btnSellApplyMember").click(function(e) {
-        alert('a');
         goUrl("sell_apply.php")
     });
 
