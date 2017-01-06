@@ -43,7 +43,7 @@
                     <th>등록일</th>
                     <?php
                         if ($tr_state === 'S') {
-                            echo "<th>평가1</th>";
+                            echo "<th>평가</th>";
                         }
                     ?>
                 </tr>
