@@ -7,19 +7,16 @@
  */
 
     require_once "../Database.php";
-
     $db = new Database();
 
-    $ages = getAges($_POST['u_ident1']);
-    $location = $_POST['u_location'];
 
     $member_infos = [
-        'name' => $_POST['u_ident1'],
-        'email' => $_POST['u_email']."@".$_POST['u_email_domain_select'],
-        'password' => password_hash($_POST['u_pwd1'], PASSWORD_DEFAULT),
-        'birth_year' => $_POST['u_ident1'],
+        'name' => $_POST['u_name'],
+        'email' => $_POST['u_email'],
+        'password' => password_hash($_POST['u_pwd_1'], PASSWORD_DEFAULT),
+        'birth_year' => $_POST['u_birth_year'],
         'location' => $_POST['u_location'],
-        'cellphone' => $_POST['u_hp1'].$_POST['u_hp2'].$_POST['u_hp3'],
+        'cellphone' => $_POST['u_cellphone'],
     ];
 
     $member_id = $db->insertMemberInfo($member_infos);

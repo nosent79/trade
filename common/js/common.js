@@ -2,24 +2,34 @@
         $("#btnMyPage").click(function() {
             location.href = "../mypage/index.php";
         });
+
         $("#btnLogin").click(function() {
             location.href = "../auth/login.php";
         });
+
+        $("#btnLogout").click(function() {
+            location.href = "../auth/logout.php";
+        });
+
         $("#btnJoin").click(function() {
             location.href = "../auth/join.php";
         });
+
         $("#btnBuy").click(function() {
             location.href = "../buy/index.php";
         });
+
         $("#btnSell").click(function() {
             location.href = "../../sell/index.php";
         });
+
         $("#btnBuyRegister").click(function() {
             var url = "../popup/registerBuy.php";
             var opt = "width=600, height=600, resizable=no, scrollbars=no, status=no;";
 
             popupOpen(url, opt);
         });
+
         $("#btnSellRegister").click(function() {
             var url = "../popup/registerSell.php";
             var opt = "width=600, height=600, resizable=no, scrollbars=no, status=no;";

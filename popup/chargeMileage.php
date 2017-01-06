@@ -1,6 +1,6 @@
 <?php
     require_once "../Database.php";
-    require_once  "../common/html/header.html";
+    require_once  "../common/html/header_bootstrap.html";
 
 
     if (!isMember()) {

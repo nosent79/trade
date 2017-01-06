@@ -23,12 +23,6 @@
     ];
 ?>
 <div class="container">
-    <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?=SITE_URL.SITE_PORT?>/auth/logout.php"><span class="glyphicon glyphicon-log-in"></span> 로그아웃</a></li>
-        </ul>
-    </div>
-
     <div class="row">
         <?php
         include_once "../common/html/mypage/left.html";

@@ -1,7 +1,37 @@
-<button class="button g_big_box1" id="btnLogin">Go to Login Page</button>
-<button class="button g_big_box1" id="btnJoin">Go to Join Page</button>
-<button class="button g_big_box1" id="btnMyPage">Go to MyPage</button>
-<button class="button g_big_box1" id="btnBuy">삽니다</button>
-<button class="button g_big_box1" id="btnSell">팝니다</button>
-<button class="button g_big_box1" id="btnBuyRegister">판매등록</button>
-<button class="button g_big_box1" id="btnSellRegister">구매등록</button>
+<div class="container">
+    <div style="padding-bottom: 80px;">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<?=SITE_URL.SITE_PORT?>"><?=SITE_TITLE?></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav ">
+                    <li><a id='btnBuy' href='#'>삽니다</a></li>
+                    <li><a id='btnSell' href='#'>팝니다</a></li>
+                    <li><a id='btnBuyRegister' href='#'>판매등록</a></li>
+                    <li><a id='btnSellRegister' href='#'>구매등록</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <?php
+                    if(!isMember()) {
+                        echo "<li><a id='btnJoin' href='#'><span class='glyphicon glyphicon glyphicon-user'></span> Join</a></li>";
+                        echo "<li><a id='btnLogin' href='#'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
+                    } else {
+                        echo "<li><a id='btnMyPage' href='#'><span class='glyphicon glyphicon-cog'></span> MyPage</a></li>";
+                        echo "<li><a id='btnLogout' href='#'><span class='glyphicon glyphicon-log-out'></span> 로그아웃</a></li>";
+                    }
+                    ?>
+
+                </ul>
+
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    </div>

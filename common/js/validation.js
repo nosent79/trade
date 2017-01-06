@@ -166,31 +166,16 @@ function isValidType( oInput, oType, oMsg ) {
     }
 }
 
-function checkEmail(oInput1,oInput2,oInput3) {
+function checkEmail(oInput1) {
+    var txt =  oInput1.value;
 
     if (oInput1.value == "") {
         alert("이메일 아이디를 입력하십시오 ..");
         oInput1.focus();
         return false;
     }
-    if (oInput1.value.indexOf("@") != -1 ){		// "@" 문자열이 포함됐을경우
-        var s_email = oInput1.value.split("@");
-        oInput1.value = s_email[0];				//이메일 아이디만 강제 입력
-    }
 
-    if(oInput3.selectedIndex == 0){
-        alert("이메일 주소의 도메인이 선택되지 않았습니다.");
-        oInput3.selectedIndex = 0;
-        return false;
-    }
-
-    if (oInput3.value == "input") {
-        var txt = oInput1.value+"@"+oInput2.value;	// 아이디 + 도메인직접입력
-    } else {
-        var txt = oInput1.value+"@"+oInput3.value;	// 아이디 + 도메인선택
-    }
-
-    for (i = 0; i < txt.length; i++) {
+    for (var i = 0; i < txt.length; i++) {
         if (txt.charCodeAt(i) > 127) {
             alert("이메일은 한글을 사용할 수 없습니다.");
             return false;
@@ -199,7 +184,7 @@ function checkEmail(oInput1,oInput2,oInput3) {
 
     if (txt.indexOf("@") < 2){
         alert("이메일 형식이 잘못 되었거나 도메인 입력이 안되었습니다.");
-        oInput1.focus();
+        txt.focus();
         return false;
     }
 
@@ -232,27 +217,6 @@ function checkEmail(oInput1,oInput2,oInput3) {
         alert("공백만 입력하면 안됩니다. E-Mail을 입력해 주십시요.");
         return false;
     }
-
-
-    //오르지오, 네띠앙 메일 사용금지-시작 2006-09-28
-    /*
-     var netian_count = txt.indexOf("netian");
-     var orgio_count = txt.indexOf("orgio");
-
-     if (netian_count >-1 || orgio_count >-1) {
-
-     var back_netian_count = txt.indexOf(".com");
-     var back_orgio_count = txt.indexOf(".net");
-
-     //alert(txt.substring(netian_count,back_netian_count));
-
-     if (txt.substring(netian_count,back_netian_count)=="netian" || txt.substring(orgio_count,back_orgio_count)=="orgio"){
-     alert("네티앙과 오르지오 메일은 서비스가 중지되었으므로 사용하실 수 없습니다. 다른 메일로 등록해 주세요.");
-     document.form1.u_email.focus();
-     return false;
-     }
-     }
-     */
 
     return true;
 }
@@ -332,120 +296,7 @@ function get_input_byte(strInput)
 }
 
 //2014-01-20 | 비번체크 - submit 체크 | 2016-01-07 현재사용중
-function CheckPassWord(ObjUserID, ObjUserPassWord, ObjUserPassWord_verify)
-{
-    if(ObjUserPassWord.value != ObjUserPassWord_verify.value) {
-        alert("비밀번호와 비밀번호 확인이 다릅니다.");
-        return false;
-    }
 
-    if(ObjUserPassWord.value.length < 8 || ObjUserPassWord.value.length > 15 ) {
-        alert("비밀번호는 영문, 숫자, 특수문자의 조합으로 8자리이상 15자리 이하로 입력해주세요.");
-        return false;
-    }
-
-    if(!ObjUserPassWord.value.match(/([a-zA-Z].*[0-9])|([0-9].*[a-zA-Z0-9])/))  {
-        alert("비밀번호는 영문, 숫자, 특수문자의 조합으로 8자리이상 15자리이하로 입력해주세요.-숫자 또는 영문 미포함-");
-        return false;
-    }
-
-    if (!checkstring(ObjUserPassWord.value))
-    {
-        alert("비밀번호는 영문, 숫자, 특수문자의 조합으로 8자리이상 15자리이하로 입력해주세요.- 특수문자 미포함-");
-        return false;
-    }
-
-
-    if (ObjUserID)
-    {
-        if(ObjUserPassWord.value.indexOf(ObjUserID.value) > -1) {
-            alert("비밀번호에 아이디를 사용할 수 없습니다.");
-            return false;
-        }
-    }
-
-
-    var password = ObjUserPassWord.value;
-
-    var numberConut = 0;
-    var textConut = 0;
-    var specialConut = 0;
-
-    var textRegular = /[a-zA-Z]+/;
-    var numberRegular = /[1-9]+/;
-    var specialRegular = /[!,@,#,$,%,^,&,*,?,_,~]/;
-
-    if (textRegular.test(password)) textConut = 1;
-    if (numberRegular.test(password)) numberConut = 1;
-    if (specialRegular.test(password)) specialConut = 1;
-
-    var samCount = 0;
-    var continuCount = 0;
-    for(var i=0; i < password.length; i++) {
-        var forSamCount = 0;
-        var forContinuCount = 0;
-        var char1 = password.charAt(i);
-        var char2 = password.charAt(i+1);
-        var char3 = password.charAt(i+2);
-        var char4 = password.charAt(i+3);
-
-        if(!char4) {
-            break;
-        }
-        //동일문자 카운트
-        if(char1 == char2) {
-            forSamCount = 2;
-            if(char2 == char3) {
-                forSamCount = 3;
-                if(char2 == char4){
-                    forSamCount = 4;
-                }
-            }
-        }
-
-        if(forSamCount > samCount) {
-            samCount = forSamCount;
-        }
-
-        //4개이상
-        if(char1.charCodeAt(0) - char2.charCodeAt(0) == 1 && char2.charCodeAt(0) - char3.charCodeAt(0) == 1 && char3.charCodeAt(0) - char4.charCodeAt(0) == 1) {
-            forContinuCount = 4;
-        }
-        else if(char1.charCodeAt(0) - char2.charCodeAt(0) == -1 && char2.charCodeAt(0) - char3.charCodeAt(0) == -1 && char3.charCodeAt(0) - char4.charCodeAt(0) == -1) {
-            forContinuCount = 3;
-        }
-        else if(char1.charCodeAt(0) - char2.charCodeAt(0) == 1 && char2.charCodeAt(0) - char3.charCodeAt(0) == 1) {
-            forContinuCount = 3;
-        }
-        else if(char1.charCodeAt(0) - char2.charCodeAt(0) == -1 && char2.charCodeAt(0) - char3.charCodeAt(0) == -1) {
-            forContinuCount = 3;
-        }
-        else if(char1.charCodeAt(0) - char2.charCodeAt(0) == 1) {
-            forContinuCount = 2;
-        }
-        else if(char1.charCodeAt(0) - char2.charCodeAt(0) == -1) {
-            forContinuCount = 2;
-        }
-
-        if(forContinuCount > continuCount) {
-            continuCount = forContinuCount;
-        }
-    }
-
-    if (samCount >= 3)
-    {
-        alert("연속으로 같은문자를 3번 이상 사용할 수 없습니다.");
-        return false;
-    }
-
-    if (continuCount >= 3)
-    {
-        alert("연속된 문자열(123 또는 321, abc, cba 등)을\n 3자 이상 사용 할 수 없습니다.");
-        return false;
-    }
-
-    return true;
-}
 
 // ajax input 한글처리
 function ajax_setFormData(form_name,u_name)
@@ -1084,4 +935,380 @@ function check_label_base_radio(c_name,obj,rd_class,on_class,off_class)
 
     $("." + rd_class).eq(rd_index).removeClass(off_class);
     $("." + rd_class).eq(rd_index).addClass(on_class);
+}
+
+var sriStringUtil = {
+    'in_array': function (needle, haystack, argStrict) {
+        // eslint-disable-line camelcase
+        //  discuss at: http://locutus.io/php/in_array/
+        // original by: Kevin van Zonneveld (http://kvz.io)
+        // improved by: vlado houba
+        // improved by: Jonas Sciangula Street (Joni2Back)
+        //    input by: Billy
+        // bugfixed by: Brett Zamir (http://brett-zamir.me)
+        //   example 1: in_array('van', ['Kevin', 'van', 'Zonneveld'])
+        //   returns 1: true
+        //   example 2: in_array('vlado', {0: 'Kevin', vlado: 'van', 1: 'Zonneveld'})
+        //   returns 2: false
+        //   example 3: in_array(1, ['1', '2', '3'])
+        //   example 3: in_array(1, ['1', '2', '3'], false)
+        //   returns 3: true
+        //   returns 3: true
+        //   example 4: in_array(1, ['1', '2', '3'], true)
+        //   returns 4: false
+
+        var key = ''
+        var strict = !!argStrict
+
+        // we prevent the double check (strict && arr[key] === ndl) || (!strict && arr[key] === ndl)
+        // in just one for, in order to improve the performance
+        // deciding wich type of comparation will do before walk array
+        if (strict) {
+            for (key in haystack) {
+                if (haystack[key] === needle) {
+                    return true;
+                }
+            }
+        } else {
+            for (key in haystack) {
+                if (haystack[key] == needle) { // eslint-disable-line eqeqeq
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+}
+
+var imiValidate = {
+    'checkPassword' : function (identify, u_pwd_1, u_pwd_2) {
+        if (u_pwd_1.value != u_pwd_2.value) {
+            alert("비밀번호와 비밀번호 확인이 다릅니다.");
+            return false;
+        }
+    
+        if (u_pwd_1.value.length < 8 || u_pwd_1.value.length > 15 ) {
+            alert("비밀번호는 영문, 숫자, 특수문자의 조합으로 8자리이상 15자리 이하로 입력해주세요.");
+            return false;
+        }
+
+        if (!u_pwd_1.value.match(/([a-zA-Z].*[0-9])|([0-9].*[a-zA-Z0-9])/))  {
+            alert("비밀번호는 영문, 숫자, 특수문자의 조합으로 8자리이상 15자리이하로 입력해주세요.-숫자 또는 영문 미포함-");
+            return false;
+        }
+
+        if (!checkstring(u_pwd_1.value))
+        {
+            alert("비밀번호는 영문, 숫자, 특수문자의 조합으로 8자리이상 15자리이하로 입력해주세요.- 특수문자 미포함-");
+            return false;
+        }
+
+        if (identify) {
+            if (u_pwd_1.value.indexOf(identify.value) > -1) {
+                alert("비밀번호에 아이디를 사용할 수 없습니다.");
+                return false;
+            }
+        }
+
+
+        var password = u_pwd_1.value;
+
+        var numberConut = 0;
+        var textConut = 0;
+        var specialConut = 0;
+
+        var textRegular = /[a-zA-Z]+/;
+        var numberRegular = /[1-9]+/;
+        var specialRegular = /[!,@,#,$,%,^,&,*,?,_,~]/;
+
+        if (textRegular.test(password)) textConut = 1;
+        if (numberRegular.test(password)) numberConut = 1;
+        if (specialRegular.test(password)) specialConut = 1;
+
+        var samCount = 0;
+        var continuCount = 0;
+
+        for(var i=0; i < password.length; i++) {
+            var forSamCount = 0;
+            var forContinuCount = 0;
+            var char1 = password.charAt(i);
+            var char2 = password.charAt(i+1);
+            var char3 = password.charAt(i+2);
+            var char4 = password.charAt(i+3);
+
+            if(!char4) {
+                break;
+            }
+            //동일문자 카운트
+            if(char1 == char2) {
+                forSamCount = 2;
+                if(char2 == char3) {
+                    forSamCount = 3;
+                    if(char2 == char4){
+                        forSamCount = 4;
+                    }
+                }
+            }
+
+            if(forSamCount > samCount) {
+                samCount = forSamCount;
+            }
+
+            //4개이상
+            if(char1.charCodeAt(0) - char2.charCodeAt(0) == 1 && char2.charCodeAt(0) - char3.charCodeAt(0) == 1 && char3.charCodeAt(0) - char4.charCodeAt(0) == 1) {
+                forContinuCount = 4;
+            }
+            else if(char1.charCodeAt(0) - char2.charCodeAt(0) == -1 && char2.charCodeAt(0) - char3.charCodeAt(0) == -1 && char3.charCodeAt(0) - char4.charCodeAt(0) == -1) {
+                forContinuCount = 3;
+            }
+            else if(char1.charCodeAt(0) - char2.charCodeAt(0) == 1 && char2.charCodeAt(0) - char3.charCodeAt(0) == 1) {
+                forContinuCount = 3;
+            }
+            else if(char1.charCodeAt(0) - char2.charCodeAt(0) == -1 && char2.charCodeAt(0) - char3.charCodeAt(0) == -1) {
+                forContinuCount = 3;
+            }
+            else if(char1.charCodeAt(0) - char2.charCodeAt(0) == 1) {
+                forContinuCount = 2;
+            }
+            else if(char1.charCodeAt(0) - char2.charCodeAt(0) == -1) {
+                forContinuCount = 2;
+            }
+
+            if(forContinuCount > continuCount) {
+                continuCount = forContinuCount;
+            }
+        }
+
+        if (samCount >= 3) {
+            alert("연속으로 같은문자를 3번 이상 사용할 수 없습니다.");
+            return false;
+        }
+
+        if (continuCount >= 3) {
+            alert("연속된 문자열(123 또는 321, abc, cba 등)을\n 3자 이상 사용 할 수 없습니다.");
+            return false;
+        }
+
+        return true;
+
+    },
+
+    //	Null 체크
+    'chkNull': function (obj) {
+        if ($(obj).val().split(" ").join("") == "")    return true;
+
+        return false;
+    },
+
+    // 텍스트상자 입력 체크
+    'chkTextInput': function (obj, alertMSG) {
+        if (this.chkNull(obj)) {
+            alert(alertMSG);
+            obj.focus();
+            return true;
+        }
+        return false;
+    },
+
+    // 두 값을 비교
+    'compareTextValue': function ( obj1, obj2, alertMSG) {
+        if (obj1.val() != obj2.val()) {
+            alert(alertMSG);
+            obj2.val('')
+            obj2.focus();
+            return true;
+        }
+        return false;
+    },
+
+    // 체크상자 확인
+    'chkCheckBox' : function (obj, alertMSG) {
+        if(!obj.is(":checked")) {
+            alert(alertMSG);
+            obj.focus();
+            return true;
+        }
+    },
+
+
+    // 이메일 형식체크
+    'chkeMailExp': function (obj) {
+        var objvalue = "";
+        var regExp = /^[\w\-\.]+@(?:(?:[\w\-]{2,}\.)+[a-zA-Z]{2,})$/;
+        if(typeof obj === 'object') {
+            objvalue = obj.val();
+
+            if (objvalue == "" || !regExp.test(objvalue)) {
+                alert("이메일 형식이 맞지않습니다");
+                obj.focus();
+                return false;
+            }
+        } else {
+            objvalue = obj;
+
+            if (objvalue == "" || !regExp.test(objvalue)) {
+                alert("이메일 형식이 맞지않습니다");
+                return false;
+            }
+        }
+        return true;
+    },
+
+    // 영문,숫자,특수문자 방지
+    'chkOnlyKor': function (obj) {
+        var rtn;
+        for (var j = 0; j < obj.length; j++) {
+            var vAsc = obj.charCodeAt(j);
+            if (((vAsc > 96) && (vAsc < 124)) || ((vAsc > 64) && (vAsc < 91)) || ((vAsc > 31) && (vAsc < 48) || (vAsc >= 48) && (vAsc <= 57))) {
+                rtn = true;
+                alert("【 입력오류 】: 영문,숫자,특수문자는 입력할 수 없습니다. 한글만 입력해 주세요.    ");
+                break;
+            }
+            else {
+                rtn = false;
+            }
+        }
+        return rtn;
+    },
+
+    // 숫자만
+    'onlyNum': function (obj) {
+        var re = /[^0-9]+/g;
+        var that = obj;
+        if("imeMode" in that.style) that.style.imeMode = "disabled";	//다국어 입력이 가능해서 막도록
+
+        that.value.replace(re, function (curVal, curNum, totalVal) {
+            that.value = arguments[arguments.length - 1].replace(curVal, "");
+            alert('숫자만 입력바랍니다.');
+        });
+    },
+
+    // !숫자
+    'notNum': function (obj) {
+        var re = /[0-9]+/g;
+        var that = obj;
+        that.value.replace(re, function (curVal, curNum, totalVal) {
+            that.value = arguments[arguments.length - 1].replace(curVal, "");
+        });
+    },
+
+    // 숫자 & .
+    'dotNum': function (obj) {
+        var re = /[^\d\.]/g;
+        var that = obj;
+        if("imeMode" in that.style) that.style.imeMode = "disabled";	//다국어 입력이 가능해서 막도록
+
+        that.value.replace(re, function (curVal, curNum, totalVal) {
+            that.value = arguments[arguments.length - 1].replace(curVal, "");
+            alert('숫자와 점(.)만 입력바랍니다.');
+        });
+    },
+
+    //숫자 & '-' & '.'
+    'hyphenDotNum': function (obj) {
+        var re = /[^\d\.\-]/g;
+        var that = obj;
+        if("imeMode" in that.style) that.style.imeMode = "disabled";	//다국어 입력이 가능해서 막도록
+
+        that.value.replace(re, function (curVal, curNum, totalVal) {
+            that.value = arguments[arguments.length - 1].replace(curVal, "");
+            alert('숫자와 하이픈(-) 및 점(.)만 입력바랍니다.');
+        });
+    },
+
+    //한글만
+    'onlyKor': function (obj) {
+        var re = /[^ㄱ-ㅎㅏ-ㅣ가-힣]+/g;
+        var that = obj;
+        that.value.replace(re, function (curVal, curNum, totalVal) {
+            that.value = arguments[arguments.length - 1].replace(curVal, "");
+        });
+    },
+
+    //한글, 영문, 스페이스만
+    'onlyKorEngSpace': function (obj) {
+        var re = /^[^ㄱ-ㅎ|가-힣|a-z|A-Z\s]+$/g;
+        var that = obj;
+        that.value.replace(re, function (curVal, curNum, totalVal) {
+            that.value = arguments[arguments.length - 1].replace(curVal, "");
+        });
+
+    },
+
+    //!한글
+    'notKor': function (obj) {
+        var re = /[ㄱ-ㅎㅏ-ㅣ가-힣]+/g;
+        var that = obj;
+        that.value.replace(re, function (curVal, curNum, totalVal) {
+            that.focus();
+            that.value = arguments[arguments.length - 1].replace(curVal, "");
+        });
+    },
+
+    //영어만
+    'onlyEng': function (obj) {
+        var re = /[^a-z]/gi;
+        obj.value = obj.value.replace(re, '');
+    },
+
+    'onlyEngSpace': function (obj) {
+        var re = /[^a-z\s]|/gi;
+        obj.value = obj.value.replace(re, '');
+    },
+
+    'onlyEngSpaceDashAnd': function (obj) {
+        var re = /[^a-z\s\-&]|/gi;
+        obj.value = obj.value.replace(re, '');
+    },
+
+    'onlyEngSpaceDashAndNum': function (obj) {
+        var re = /[^a-z\s\-&\d]|/gi;
+        obj.value = obj.value.replace(re, '');
+    },
+
+    // 이메일 형식체크
+    'emailExpCheck': function (obj) {
+        var objvalue = obj;
+        //var regExp = /^(19|20)\d{2}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[0-1])$/;
+        var regExp = /^[\w\-\.]+@(?:(?:[\w\-]{2,}\.)+[a-zA-Z]{2,})$/;
+        if (objvalue == "") {
+            return false;
+        } else {
+            if (!regExp.test(objvalue)) {
+                return false;
+            }
+        }
+        return true;
+    },
+    "jqDatepicker": function (obj) {
+        $(obj).css({ "width": "70px" }).attr('readonly', 'readonly').datepicker({
+            showOn: "both", // 버튼과 텍스트 필드 모두 캘린더를 보여준다.
+            buttonImage: "https://www.saraminimage.co.kr/dym_images/dym2_5/common/applicant/calendar.gif", // 버튼 이미지
+            buttonImageOnly: true, // 버튼에 있는 이미지만 표시한다.
+            changeMonth: true, // 월을 바꿀수 있는 셀렉트 박스를 표시한다.
+            changeYear: true, // 년을 바꿀 수 있는 셀렉트 박스를 표시한다.
+            minDate: '-100y', // 현재날짜로부터 100년이전까지 년을 표시한다.
+            nextText: '다음 달', // next 아이콘의 툴팁.
+            prevText: '이전 달', // prev 아이콘의 툴팁.
+            numberOfMonths: [1, 1], // 한번에 얼마나 많은 월을 표시할것인가. [2,3] 일 경우, 2(행) x 3(열) = 6개의 월을 표시한다.
+            stepMonths: 3, // next, prev 버튼을 클릭했을때 얼마나 많은 월을 이동하여 표시하는가.
+            yearRange: 'c-100:c+100', // 년도 선택 셀렉트박스를 현재 년도에서 이전, 이후로 얼마의 범위를 표시할것인가.
+            showButtonPanel: true, // 캘린더 하단에 버튼 패널을 표시한다.
+            currentText: '오늘 날짜', // 오늘 날짜로 이동하는 버튼 패널
+//            closeText: '닫기',  // 닫기 버튼 패널
+            dateFormat: "yy-mm-dd", // 텍스트 필드에 입력되는 날짜 형식.
+            showAnim: "slide", //애니메이션을 적용한다.
+            showMonthAfterYear: true, // 월, 년순의 셀렉트 박스를 년,월 순으로 바꿔준다.
+            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], // 요일의 한글 형식.
+            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'], // 월의 한글 형식.
+            closeText: 'Clear',
+            onClose: function (dateText, inst) {
+                if ($(window.event.srcElement).hasClass('ui-datepicker-close'))
+                {
+                    document.getElementById(this.id).value = '';
+                }
+            }
+        });
+    }
 }
