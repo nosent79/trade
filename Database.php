@@ -419,6 +419,31 @@
         }
 
         /**
+         * 마일리지 내역
+         *
+         * @param $flag
+         * @return mixed
+         */
+        public function getMileageList($flag)
+        {
+            $sql = "
+                select   amount
+                         ,reg_date
+                from     tbl_mileage
+                where    m_id = :m_id
+                and      m_gubun = :flag
+                order by reg_date desc
+            ";
+
+            $this->query($sql);
+            $this->bind(":m_id", $_SESSION['m_id']);
+            $this->bind(":flag", $flag);
+
+            return $this->resultset($sql);
+        }
+
+
+        /**
          * 총 마일리지 추출
          *
          * @return mixed

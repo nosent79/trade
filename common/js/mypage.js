@@ -22,6 +22,18 @@ $(function() {
         goUrl("buy_apply.php")
     });
 
+    $("#btnHistoryMileage").click(function(e) {
+        goUrl("mileage_list.php")
+    });
+
+    $("#btnChargePoint").click(function(e) {
+        goUrl("?mileage_flag=P")
+    });
+
+    $("#btnUsePoint").click(function(e) {
+        goUrl("?mileage_flag=M")
+    });
+
     $("._goBuyDesc").click(function(e) {
         e.preventDefault();
 
