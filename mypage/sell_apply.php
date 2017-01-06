@@ -79,22 +79,22 @@
 </div>
 <script src="../common/js/mypage.js"></script>
 <script>
-    $("._assess").click(function(e) {
-        e.preventDefault();
-
-        var url = "assess.php";
-        var f = document.frmAssess;
-        f.t_m_id.value = $(this).attr("t_m_id");
-        f.t_m_nm.value = $(this).attr("t_m_id");
-
-        var pop_title = "popupOpener" ;
-        window.open("", pop_title) ;
-
-        f.target = pop_title ;
-        f.action = url ;
-
-        f.submit() ;
-    });
+//    $("._assess").click(function(e) {
+//        e.preventDefault();
+//
+//        var url = "assess.php";
+//        var f = document.frmAssess;
+//        f.t_m_id.value = $(this).attr("t_m_id");
+//        f.t_m_nm.value = $(this).attr("t_m_id");
+//
+//        var pop_title = "popupOpener" ;
+//        window.open("", pop_title) ;
+//
+//        f.target = pop_title ;
+//        f.action = url ;
+//
+//        f.submit() ;
+//    });
 
 </script>
 </body>

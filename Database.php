@@ -304,6 +304,7 @@
                          ,t.reg_date t_date
                          ,fnCodeNm('trade_state', ts.tr_state) tr_state
                          ,ts.reg_date ts_date
+                         ,case when tttt.target_id is null then 0 else 1 end assessed                         
                 from     tbl_trade t inner join
                           (
                             select   t.tr_code,
@@ -317,7 +318,9 @@
                             on       t.tr_code = tt.tr_code
                             and      t.reg_date = tt.reg_date
                           ) ts
-                on        t.tr_code = ts.tr_code
+                on        t.tr_code = ts.tr_code left join
+                          tbl_assess tttt
+                on        t.reg_id = tttt.assessor_id
                 where    tr_gubun = :gubun
                 and       ts.tr_state = :state
                 and       t.reg_id = :reg_id

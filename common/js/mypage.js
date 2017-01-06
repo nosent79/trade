@@ -54,6 +54,24 @@ $(function() {
         popupOpen(url, opt)
     });
 
+    $("._assess").click(function(e) {
+       e.preventDefault();
+
+       var url = "assess.php";
+       var f = document.frmAssess;
+       f.t_m_id.value = $(this).attr("t_m_id");
+       f.t_m_nm.value = $(this).attr("t_m_nm");
+
+       var pop_title = "popupOpener" ;
+       window.open("", pop_title) ;
+
+       f.target = pop_title ;
+       f.action = url ;
+
+       f.submit() ;
+    });
+
+
     $("#btnWait").click(function() {
         goUrl("?state=W");
     });

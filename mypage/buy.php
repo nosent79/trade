@@ -71,8 +71,10 @@
                         <td><?=$list['price']?></td>
                         <td><?=$list['t_date']?></td>
                         <?php
-                        if ($tr_state === 'S') {
-                            echo "<td><button class='button g_button _assess'>평가</button></td>";
+                        if ($tr_state === 'S' && $list['assessed']) {
+                            echo "<td><button t_m_id='".$list['reg_id']."' class='button g_button _assess'>평가</button></td>";
+                        } else {
+                            echo "<td>완료</td>";
                         }
                         ?>
                     </tr>
@@ -86,24 +88,5 @@
     <!-- Single button -->
 </div>
 <script src="../common/js/mypage.js"></script>
-<script>
-    $("._assess").click(function(e) {
-//        e.preventDefault();
-//
-//        var url = "assess.php";
-//        var f = document.frmAssess;
-//        f.t_m_id.value = $(this).attr("t_m_id");
-//        f.t_m_nm.value = $(this).attr("t_m_nm");
-//
-//        var pop_title = "popupOpener" ;
-//        window.open("", pop_title) ;
-//
-//        f.target = pop_title ;
-//        f.action = url ;
-//
-//        f.submit() ;
-    });
-
-</script>
 </body>
 </html>
