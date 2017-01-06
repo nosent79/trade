@@ -21,10 +21,10 @@ $mileage = $db->getMileage();
 <div class="g_content">
     <div>물품정보</div>
     <form id="frmPay" name="frmPay" method="post">
-        <input type="hidden" id="real_use_mileage" name="real_use_mileage" value=<?=$info['price']?>/>
-        <input type="hidden" id="real_pay_amount" name="real_pay_amount" value=0/>
-        <input type="hidden" id="my_mileage" name="my_mileage" value="<?=number_format($mileage)?>"/>
-        <input type="hidden" name="tr_code" value="<?=$info['tr_code']?>"/>
+        <input type="hidden" id="real_use_mileage" name="real_use_mileage" value=<?=$info['price']?> />
+        <input type="hidden" id="real_pay_amount" name="real_pay_amount" value=0 />
+        <input type="hidden" id="my_mileage" name="my_mileage" value="<?=number_format($mileage)?>" />
+        <input type="hidden" name="tr_code" value="<?=$info['tr_code']?>" />
 
         <table class="g_blue_table">
             <colgroup>
