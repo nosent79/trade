@@ -23,6 +23,10 @@
     ];
 ?>
 <div class="container">
+    <form id="frmAssess" name="frmAssess" method="post">
+        <input type="hidden" name="t_m_id"  />
+        <input type="hidden" name="t_m_nm" />
+    </form>
     <div class="row">
         <?php
         include_once "../common/html/mypage/left.html";
@@ -85,24 +89,6 @@
     <!-- Single button -->
 </div>
 <script src="../common/js/mypage.js"></script>
-<script>
-//    $("._assess").click(function(e) {
-//        e.preventDefault();
-//
-//        var url = "assess.php";
-//        var f = document.frmAssess;
-//        f.t_m_id.value = $(this).attr("t_m_id");
-//        f.t_m_nm.value = $(this).attr("t_m_nm");
-//
-//        var pop_title = "popupOpener" ;
-//        window.open("", pop_title) ;
-//
-//        f.target = pop_title ;
-//        f.action = url ;
-//
-//        f.submit() ;
-//    });
-
-</script>
-</body>
-</html>
+<?php
+    require_once  "../common/html/footer.html"
+?>

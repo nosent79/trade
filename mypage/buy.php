@@ -25,6 +25,10 @@
 
 ?>
 <div class="container">
+    <form id="frmAssess" name="frmAssess" method="post">
+        <input type="hidden" name="t_m_id"  />
+        <input type="hidden" name="t_m_nm" />
+    </form>
     <div class="row">
         <?php
         include_once "../common/html/mypage/left.html";
@@ -88,5 +92,6 @@
     <!-- Single button -->
 </div>
 <script src="../common/js/mypage.js"></script>
-</body>
-</html>
+<?php
+    require_once  "../common/html/footer.html"
+?>
