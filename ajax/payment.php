@@ -9,7 +9,7 @@
         'm_gubun' => 'M',
         'reg_m_id' => $_POST['reg_m_id'],
     ];
-
+    
     if ($db->payment($params)) {
         $code   = "00";
         $status = "success";
