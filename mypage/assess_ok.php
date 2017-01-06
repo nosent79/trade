@@ -13,5 +13,5 @@
     }
 
     if ($db->insertAssess($_REQUEST)) {
-        redirectAlert("/mypage", "등록했습니다.");
+        closePopupAndAlert(MYPAGE_PATH, "등록했습니다.");
     }

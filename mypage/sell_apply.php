@@ -66,14 +66,15 @@
                         <td><?= $list['tr_title'] ?></td>
                         <td><?=$list['price']?></td>
                         <td><?=$list['t_date']?></td>
-                        <?php
-                        if ($tr_state === 'S') {
-                            echo "<td><button t_m_id='".$list['reg_id']."' class='button g_button _assess'>평가</button></td>";
-                        }
-                        ?>
-
+                <?php
+                    if ($tr_state === 'S' && $list['assessed']) {
+                        echo "<td><button t_m_id='".$list['reg_id']."' class='button g_button _assess'>평가</button></td>";
+                    } else {
+                        echo "<td>완료</td>";
+                    }
+                ?>
                     </tr>
-                    <?php
+                <?php
                 }
                 ?>
                 </tbody>
