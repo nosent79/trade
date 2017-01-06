@@ -25,6 +25,7 @@ $mileage = $db->getMileage();
         <input type="hidden" id="real_pay_amount" name="real_pay_amount" value=0 />
         <input type="hidden" id="my_mileage" name="my_mileage" value="<?=number_format($mileage)?>" />
         <input type="hidden" name="tr_code" value="<?=$info['tr_code']?>" />
+        <input type="hidden" name="reg_m_id" value="<?=$info['reg_id']?>" />
 
         <table class="g_blue_table">
             <colgroup>
